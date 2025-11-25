@@ -1,4 +1,4 @@
-# SmartHomeEnergyPrediction
+
 # Smart Home Energy Prediction Project
 
 ## 📌 Overview
