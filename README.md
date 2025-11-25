@@ -1,81 +1,109 @@
 
-# Smart Home Energy Prediction Project
+mart Home Energy Prediction Project
+📌 Overview
 
-## 📌 Overview
-This project aims to build a machine learning model capable of predicting appliance energy consumption in a smart home environment.  
-The dataset contains temperature, humidity, weather, and environmental sensor readings collected from different rooms in the house.
+This project aims to build a machine learning model capable of predicting appliance energy consumption in a smart home environment.
 
-The goal of the project is to develop a dashboard where the user can enter sensor values and instantly see the predicted energy usage.
+The dataset contains temperature, humidity, weather, and environmental sensor readings collected from different rooms in the house over ~4.5 months, recorded every 10 minutes. The data was collected using a ZigBee wireless sensor network, merged with weather data from Chievres Airport (Belgium), and includes two random variables for testing purposes.
 
----
+The goal of the project is to develop a dashboard where users can enter sensor values and instantly see the predicted energy usage.
 
-## 📌 Objectives
-- Analyze the smart home dataset.
-- Preprocess and scale the data for machine learning.
-- Train several regression models and compare their performance.
-- Select the best model (Random Forest).
-- Save the model and scaler for deployment.
-- Build an interactive Streamlit dashboard for real-time prediction.
+📌 Dataset Information
 
----
+Date/Time: year-month-day hour:minute:second
 
-## 📌 Project Files Description
+Appliances: energy use in Wh
 
-### **1. model_training.ipynb**
-This notebook contains the full machine learning workflow:
-- Data loading
-- Splitting into training and testing sets
-- Standardization
-- Training multiple regression models
-- Evaluating MAE and RMSE
-- Saving the trained model and scaler
+lights: energy use of light fixtures in Wh
 
----
+T1-RH_1, …, T9-RH_9: Temperature and Humidity in various rooms in Celsius and %
 
-### **2. app.py**
-This is the Streamlit web application that serves as the user interface.  
-It loads the trained model and scaler, receives sensor inputs from the user, processes them, and displays the predicted energy consumption.
+T_out, Press_mm_hg, RH_out, Windspeed, Visibility, Tdewpoint: Weather data from Chievres station
 
----
+rv1, rv2: Random variables for regression testing
 
-### **3. random_forest_model.pkl**
-This file contains the trained Random Forest regression model.  
-It is produced during training and used only by the Streamlit dashboard.
+Data Notes:
 
----
+10-minute interval averages from raw sensor readings (~3.3 min per node)
 
-### **4. scaler.pkl**
-This file stores the StandardScaler used to normalize the dataset before training.  
-It ensures that incoming user inputs receive the same preprocessing as the training data.
+Weather data interpolated to match the sensor timestamp
 
----
+Two random variables included to test non-predictive features
 
-### **5. requirements.txt**
-Lists all Python libraries needed to run the project.
+📌 Preprocessing & What We Did
 
----
+Loaded the dataset (energydata_completee.csv) using Pandas with the correct separator (;).
 
-### **6. README.md**
-Provides documentation for the project, explaining its purpose, structure, files, and how to run it.
+Converted the date column to datetime and extracted new features:
 
----
+hour, day_of_week, month, week_of_year
 
-## 📌 How to Run the Project
+Dropped unnecessary columns: date, rv1, rv2
 
-1. Install the required libraries:
-    ```
-    pip install -r requirements.txt
-    ```
+Defined target variable (Appliances) and features (X = all other columns)
 
-2. Run the Streamlit dashboard:
-    ```
-    streamlit run app.py
-    ```
+Split the dataset into training (80%) and testing (20%) sets
 
-3. Enter the sensor values in the interface and the model will predict the energy consumption.
+Standardized the features using StandardScaler to ensure all inputs are on the same scale
 
----
+Trained multiple regression models: Linear Regression, Decision Tree, Random Forest, Gradient Boosting
 
-## 📌 Conclusion
-This project demonstrates how machine learning can be applied to real-world smart home applications.  
-By integrating the trained model with a Streamlit interface, we provide an interactive tool that predicts appliance energy consumption based on environmental data.
+Evaluated models using MAE and RMSE, and selected Random Forest as the best-performing model
+
+Saved the scaler (scaler.pkl) for use in the dashboard to preprocess user inputs
+
+📌 Project Files Description
+
+model_training.ipynb
+
+Full machine learning workflow including preprocessing, model training, evaluation, and saving the scaler
+
+app.py
+
+Streamlit dashboard that loads the scaler, receives user sensor inputs, scales them, and predicts energy usage
+
+scaler.pkl
+
+Contains the trained StandardScaler to ensure the same preprocessing is applied to new inputs
+
+requirements.txt
+
+Lists all Python libraries required for running the project (pandas, numpy, scikit-learn, joblib, streamlit, etc.)
+
+README.md
+
+This file: provides full documentation, dataset info, workflow, and instructions
+
+⚠️ random_forest_model.pkl is not included in the GitHub repository because it is a large file. It will be used in the AWS deployment for running the dashboard.
+
+📌 How to Run the Project
+
+Locally (optional):
+
+Install required libraries:
+
+pip install -r requirements.txt
+
+
+Upload the trained Random Forest model (random_forest_model.pkl) manually if needed.
+
+Run the Streamlit dashboard:
+
+streamlit run app.py
+
+
+Enter sensor values and get predicted appliance energy consumption.
+
+On AWS:
+
+We will deploy the dashboard on an EC2 instance.
+
+Upload the repository files (app.py, model_training.ipynb, scaler.pkl, requirements.txt) to the server.
+
+Also upload the random_forest_model.pkl to the AWS instance.
+
+Run streamlit run app.py on the server to access the interactive dashboard in the browser.
+
+📌 Conclusion
+
+This project demonstrates how machine learning can be applied to real-world smart home applications. By integrating the trained Random Forest model with a Streamlit dashboard, users can interactively predict appliance energy consumption based on environmental data.
