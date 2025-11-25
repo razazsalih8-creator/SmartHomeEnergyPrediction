@@ -64,3 +64,18 @@ The goal of the project is to develop a **dashboard** where users can enter sens
 1. Install required libraries:  
 ```bash
 pip install -r requirements.txt
+
+2. Upload the trained Random Forest model (random_forest_model.pkl) manually if needed.
+3.Run the Streamlit dashboard:
+streamlit run app.py
+4.Enter sensor values and get predicted appliance energy consumption.
+
+On AWS:
+
+-We will deploy the dashboard on an EC2 instance.
+-Upload the repository files (app.py, model_training.ipynb, scaler.pkl, requirements.txt) to the server.
+-Also upload the random_forest_model.pkl to the AWS instance.
+-Run streamlit run app.py on the server to access the interactive dashboard in the browser.
+
+## 📌Conclusion
+This project demonstrates how machine learning can be applied to real-world smart home applications. By integrating the trained Random Forest model with a Streamlit dashboard, users can interactively predict appliance energy consumption based on environmental data.
