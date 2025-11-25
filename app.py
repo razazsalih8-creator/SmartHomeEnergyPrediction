@@ -2,13 +2,12 @@ import streamlit as st
 import joblib
 import numpy as np
 
-# Load model and scaler from models/ folder
-# Ensure you upload the two files models/random_forest_model.pkl and models/scaler.pkl to the repo.
+# Load model & scaler
 model = joblib.load("models/random_forest_model.pkl")
 scaler = joblib.load("models/scaler.pkl")
 
 st.title("🏠 Smart Home Energy Prediction Dashboard")
-st.write("Enter environmental sensor values to predict appliance energy consumption (Wh).")
+st.write("Enter environmental sensor values to predict appliance energy consumption.")
 
 feature_names = [
     'lights','T1','RH_1','T2','RH_2','T3','RH_3','T4','RH_4','T5','RH_5',
