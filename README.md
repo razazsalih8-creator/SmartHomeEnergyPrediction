@@ -78,4 +78,4 @@ On AWS:
 -Run streamlit run app.py on the server to access the interactive dashboard in the browser.
 
 ## 📌Conclusion
-This project demonstrates how machine learning can be applied to real-world smart home applications. By integrating the trained Random Forest model with a Streamlit dashboard, users can interactively predict appliance energy consumption based on environmental data.
+This project demonstrates how machine learning can be applied to real-world smart home applications. By integrating the trained Random Forest model with a Streamlit dashboard, users can interactively predict appliance energy consumption based on environmental data. 
