@@ -1,6 +1,6 @@
 # Smart Home Energy Prediction Project
 
-## 📌 Overview
+## Overview
 This project aims to build a machine learning model capable of predicting **appliance energy consumption** in a smart home environment.  
 
 The dataset contains **temperature, humidity, weather, and environmental sensor readings** collected from different rooms in the house over ~4.5 months, recorded every 10 minutes. The data was collected using a ZigBee wireless sensor network, merged with weather data from Chievres Airport (Belgium), and includes two random variables for testing purposes.
@@ -9,7 +9,7 @@ The goal of the project is to develop a **dashboard** where users can enter sens
 
 ---
 
-## 📌 Dataset Information
+## Dataset Information
 - **Date/Time**: year-month-day hour:minute:second  
 - **Appliances**: energy use in Wh  
 - **lights**: energy use of light fixtures in Wh  
@@ -24,7 +24,7 @@ The goal of the project is to develop a **dashboard** where users can enter sens
 
 ---
 
-## 📌 Preprocessing & Workflow
+## Preprocessing & Workflow
 1. Loaded the dataset (`energydata_completee.csv`) using Pandas with the correct separator (`;`).  
 2. Converted the `date` column to datetime and extracted new features:  
    - `hour`, `day_of_week`, `month`, `week_of_year`  
@@ -38,7 +38,7 @@ The goal of the project is to develop a **dashboard** where users can enter sens
 
 ---
 
-## 📌 Project Files Description
+## Project Files Description
 1. **model_training.ipynb**  
    - Full machine learning workflow including preprocessing, model training, evaluation, and saving the scaler  
 
@@ -54,11 +54,11 @@ The goal of the project is to develop a **dashboard** where users can enter sens
 5. **README.md**  
    - This file: provides full documentation, dataset info, workflow, and instructions  
 
-> ⚠️ `random_forest_model.pkl` is **not included** in the GitHub repository because it is a large file. It will be used in the **AWS deployment** for running the dashboard.  
+>  `random_forest_model.pkl` is **not included** in the GitHub repository because it is a large file. It will be used in the **AWS deployment** for running the dashboard.  
 
 ---
 
-## 📌 How to Run the Project
+## How to Run the Project
 
 ### Locally (optional)
 1. Install required libraries:
@@ -82,7 +82,7 @@ streamlit run app.py
 ```
 5. Access the interactive dashboard in your browser.
 
-## 📌 Conclusion
+## Conclusion
 This project demonstrates the practical use of machine learning for predicting appliance energy consumption. Users can easily interact with the model through the Streamlit dashboard by entering sensor data, making it a useful tool for smart home energy management.
 
 
