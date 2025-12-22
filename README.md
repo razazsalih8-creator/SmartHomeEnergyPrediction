@@ -106,9 +106,9 @@ streamlit run app.py
 
 ---
 
-### 🔹 AWS Deployment
+###  AWS Deployment
 ```markdown
-## ☁️ AWS Deployment
+##  AWS Deployment
 
 The dashboard was deployed on Amazon Web Services (AWS) using an EC2 instance.
 
@@ -127,7 +127,7 @@ http://<EC2_PUBLIC_IP>:8501
 
 ---
 
-### 🔹 Conclusion
+### Conclusion
 ```markdown
 ##  Conclusion
 This project demonstrates an end-to-end IoT-based machine learning system, combining data analysis, model training, cloud deployment, and interactive visualization.  
