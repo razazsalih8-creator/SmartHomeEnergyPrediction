@@ -109,7 +109,6 @@ streamlit run app.py
 
 ---
 
-```markdown
 ## ☁️ AWS Deployment
 
 The dashboard was deployed on Amazon Web Services (AWS) using an EC2 instance.
