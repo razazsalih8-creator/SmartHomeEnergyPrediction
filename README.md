@@ -5,7 +5,7 @@ This project presents a complete IoT and Machine Learning solution for predictin
 It combines data collected from multiple indoor sensors, weather stations, machine learning models, and a cloud-based interactive dashboard.
 
 The system enables users to input sensor values through a web dashboard and instantly receive a prediction of energy consumption, without requiring any programming background.
-## 📊 Dataset Description
+##  Dataset Description
 The dataset contains environmental, indoor, and weather data collected over approximately 4.5 months, with measurements recorded every 10 minutes.
 ### Data Sources
 - Indoor temperature and humidity sensors deployed in multiple rooms  
@@ -66,7 +66,7 @@ It includes:
 - Saving the preprocessing scaler
 
 Google Colab was used to leverage cloud computing resources, avoid local environment setup issues, and enable reproducibility and easy collaboration.
-## 🖥️ Dashboard Implementation
+##  Dashboard Implementation
 
 ### app.py
 The Streamlit dashboard provides a user-friendly interface that allows users to:
@@ -76,7 +76,7 @@ The Streamlit dashboard provides a user-friendly interface that allows users to:
 - View results instantly in a web browser
 
 The dashboard acts as the final deployment layer, bridging machine learning with user interaction.
-## 📁 Project File Structure
+##  Project File Structure
 
 1. **iot_project_colab_code.ipynb**  
    - Full machine learning implementation in Google Colab  
@@ -109,7 +109,7 @@ streamlit run app.py
 
 ---
 
-## ☁️ AWS Deployment
+##  AWS Deployment
 
 The Smart Home Energy Consumption Dashboard is deployed on **Amazon Web Services (AWS)** using an **EC2 instance**, making it accessible online. We used **PowerShell** on Windows to connect to the server and execute commands remotely.
 
