@@ -124,14 +124,13 @@ The dashboard was deployed on Amazon Web Services (AWS) using an EC2 instance.
 ### Deployment Steps
 
 Run the Streamlit application on the EC2 server:
-```bash
+
 streamlit run app.py --server.port 8501 --server.address 0.0.0.0
 http://<EC2_PUBLIC_IP>:8501
 
 ---
 
-```markdown
-## ✅ Conclusion
+## Conclusion
 
 This project demonstrates an end-to-end IoT-based machine learning system, combining data analysis, model training, cloud deployment, and interactive visualization.  
 It highlights the practical application of machine learning in smart home energy management and showcases real-world skills in Python, cloud computing, and dashboard development.
