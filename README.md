@@ -103,7 +103,7 @@ The dashboard acts as the final deployment layer, bridging machine learning with
 ### Run Locally (Optional)
 
 Install the required dependencies:
-```bash
+
 pip install -r requirements.txt
 streamlit run app.py
 
