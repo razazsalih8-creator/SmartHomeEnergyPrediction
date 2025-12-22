@@ -129,6 +129,7 @@ The Smart Home Energy Consumption Dashboard is deployed on **Amazon Web Services
    ```powershell
    ssh -i "nwe_key.pem" ubuntu@<EC2_PUBLIC_IP>
 2. **Prepare the server**
+   
 Update and upgrade packages, then install Python and pip:
 sudo apt update && sudo apt upgrade -y
 sudo apt install python3-pip python3-venv -y
