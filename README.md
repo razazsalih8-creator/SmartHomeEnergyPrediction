@@ -128,22 +128,22 @@ The Smart Home Energy Consumption Dashboard is deployed on **Amazon Web Services
    Open PowerShell, navigate to the folder containing your AWS key (`.pem`) and run:  
    ```powershell
    ssh -i "nwe_key.pem" ubuntu@<EC2_PUBLIC_IP>
-2.**Prepare the server**
+2. **Prepare the server**
 Update and upgrade packages, then install Python and pip:
 sudo apt update && sudo apt upgrade -y
 sudo apt install python3-pip python3-venv -y
 
-3.**Upload project files (from local machine to EC2)**
+3. **Upload project files (from local machine to EC2)**
 Use SCP in PowerShell:
 scp -i "nwe_key.pem" -r C:\Users\LENOVO\Desktop\SmartHomeProject ubuntu@<EC2_PUBLIC_IP>:~/SmartHomeProject
 
-4.**Setup virtual environment and install dependencies**
+4. **Setup virtual environment and install dependencies**
 cd SmartHomeProject
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 
-5.**Run the Streamlit dashboard**
+5. **Run the Streamlit dashboard**
 streamlit run app.py --server.port 8501 --server.address 0.0.0.0
 Access the dashboard at: **http://<EC2_PUBLIC_IP>:8501**
 
