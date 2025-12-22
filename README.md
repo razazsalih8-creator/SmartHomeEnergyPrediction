@@ -23,7 +23,7 @@ The dataset contains environmental, indoor, and weather data collected over appr
 - Data aggregated at 10-minute intervals  
 - Weather data interpolated to align with sensor timestamps  
 - Random variables included to validate model robustness  
-## 🧠 Machine Learning Workflow
+##  Machine Learning Workflow
 
 The machine learning pipeline follows these steps:
 
@@ -53,7 +53,7 @@ The machine learning pipeline follows these steps:
    - Root Mean Squared Error (RMSE)
 10. Select Random Forest Regressor as the final model
 11. Save the trained scaler for deployment
-## 📓 Google Colab Implementation
+##  Google Colab Implementation
 
 ### iot_project_colab_code.ipynb
 This notebook contains the full machine learning implementation executed in Google Colab.
