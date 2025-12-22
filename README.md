@@ -1,88 +1,203 @@
-# Smart Home Energy Prediction Project
+🏠 Smart Home Energy Consumption Prediction Dashboard
+📌 Project Overview
 
-## Overview
-This project aims to build a machine learning model capable of predicting **appliance energy consumption** in a smart home environment.  
+This project presents a complete IoT and Machine Learning solution for predicting appliance energy consumption in a smart home environment.
+It combines data collected from multiple indoor sensors, weather stations, machine learning models, and a cloud-based interactive dashboard.
 
-The dataset contains **temperature, humidity, weather, and environmental sensor readings** collected from different rooms in the house over ~4.5 months, recorded every 10 minutes. The data was collected using a ZigBee wireless sensor network, merged with weather data from Chievres Airport (Belgium), and includes two random variables for testing purposes.
+The system enables users to input sensor values through a web dashboard and instantly receive a prediction of energy consumption, without requiring any programming background.
 
-The goal of the project is to develop a **dashboard** where users can enter sensor values and instantly see the predicted energy usage.
+📊 Dataset Description
 
----
+The dataset contains environmental, indoor, and weather data collected over approximately 4.5 months, with measurements recorded every 10 minutes.
 
-## Dataset Information
-- **Date/Time**: year-month-day hour:minute:second  
-- **Appliances**: energy use in Wh  
-- **lights**: energy use of light fixtures in Wh  
-- **T1-RH_1, …, T9-RH_9**: Temperature and Humidity in various rooms in Celsius and %  
-- **T_out, Press_mm_hg, RH_out, Windspeed, Visibility, Tdewpoint**: Weather data from Chievres station  
-- **rv1, rv2**: Random variables for regression testing  
+Data Sources
 
-**Data Notes:**  
-- 10-minute interval averages from raw sensor readings (~3.3 min per node)  
-- Weather data interpolated to match the sensor timestamp  
-- Two random variables included to test non-predictive features  
+Indoor temperature and humidity sensors deployed in multiple rooms
 
----
+Outdoor weather data from Chievres Airport (Belgium)
 
-## Preprocessing & Workflow
-1. Loaded the dataset (`energydata_completee.csv`) using Pandas with the correct separator (`;`).  
-2. Converted the `date` column to datetime and extracted new features:  
-   - `hour`, `day_of_week`, `month`, `week_of_year`  
-3. Dropped unnecessary columns: `date`, `rv1`, `rv2`  
-4. Defined **target variable** (`Appliances`) and features (`X` = all other columns)  
-5. Split the dataset into **training** (80%) and **testing** (20%) sets  
-6. Standardized the features using `StandardScaler` to ensure all inputs are on the same scale  
-7. Trained multiple regression models: Linear Regression, Decision Tree, Random Forest, Gradient Boosting  
-8. Evaluated models using **MAE** and **RMSE**, and selected **Random Forest** as the best-performing model  
-9. Saved the **scaler** (`scaler.pkl`) for use in the dashboard to preprocess user inputs  
+ZigBee wireless sensor network for indoor data transmission
 
----
+Main Features
 
-## Project Files Description
-1. **model_training.ipynb**  
-   - Full machine learning workflow including preprocessing, model training, evaluation, and saving the scaler  
+Date/Time: Timestamp of each record
 
-2. **app.py**  
-   - Streamlit dashboard that loads the scaler, receives user sensor inputs, scales them, and predicts energy usage  
+Appliances: Appliance energy consumption in Wh (target variable)
 
-3. **scaler.pkl**  
-   - Contains the trained `StandardScaler` to ensure the same preprocessing is applied to new inputs  
+Lights: Energy consumption of lighting fixtures in Wh
 
-4. **requirements.txt**  
-   - Lists all Python libraries required for running the project (`pandas`, `numpy`, `scikit-learn`, `joblib`, `streamlit`, etc.)  
+T1–T9: Indoor temperature readings (°C)
 
-5. **README.md**  
-   - This file: provides full documentation, dataset info, workflow, and instructions  
+RH_1–RH_9: Indoor humidity readings (%)
 
->  `random_forest_model.pkl` is **not included** in the GitHub repository because it is a large file. It will be used in the **AWS deployment** for running the dashboard.  
+T_out, Press_mm_hg, RH_out, Windspeed, Visibility, Tdewpoint: Outdoor weather features
 
----
+rv1, rv2: Random variables for regression testing
 
-## How to Run the Project
+Data Notes
 
-### Locally (optional)
-1. Install required libraries:
-```bash
+Data aggregated at 10-minute intervals
+
+Weather data interpolated to align with sensor timestamps
+
+Random variables included to validate model robustness
+
+🧠 Machine Learning Workflow
+
+The machine learning pipeline follows these steps:
+
+Load the dataset using Pandas with the correct delimiter (;)
+
+Convert the date column to datetime format
+
+Extract additional temporal features:
+
+hour
+
+day_of_week
+
+month
+
+week_of_year
+
+Remove non-useful columns:
+
+date
+
+rv1
+
+rv2
+
+Define:
+
+Target variable: Appliances
+
+Feature matrix: all remaining columns
+
+Split data into training (80%) and testing (20%)
+
+Apply StandardScaler to normalize feature values
+
+Train multiple regression models:
+
+Linear Regression
+
+Decision Tree Regressor
+
+Random Forest Regressor
+
+Gradient Boosting Regressor
+
+Evaluate models using:
+
+Mean Absolute Error (MAE)
+
+Root Mean Squared Error (RMSE)
+
+Select Random Forest Regressor as the final model
+
+Save the trained scaler for deployment
+
+📓 Google Colab Implementation
+iot_project_colab_code.ipynb
+
+This notebook contains the full machine learning implementation executed in Google Colab.
+
+It includes:
+
+Dataset loading and cleaning
+
+Feature engineering and preprocessing
+
+Model training and comparison
+
+Model performance evaluation
+
+Saving the preprocessing scaler
+
+Google Colab was used to:
+
+Leverage cloud computing resources
+
+Avoid local environment setup issues
+
+Enable reproducibility and easy collaboration
+
+The notebook serves as the development and experimentation environment, while the dashboard uses the trained components for prediction.
+
+🖥️ Dashboard Implementation
+app.py
+
+The Streamlit dashboard provides a user-friendly interface that allows users to:
+
+Enter indoor sensor values and environmental parameters
+
+Automatically apply the same preprocessing steps used during training
+
+Generate real-time energy consumption predictions
+
+View results instantly in a web browser
+
+The dashboard acts as the final deployment layer, bridging machine learning with user interaction.
+
+📁 Project File Structure
+File	Description
+iot_project_colab_code.ipynb	Full ML implementation in Google Colab
+model_training.ipynb	Local notebook for training and evaluation
+app.py	Streamlit dashboard for prediction
+scaler.pkl	Saved StandardScaler for preprocessing
+requirements.txt	Required Python dependencies
+README.md	Project documentation
+
+⚠️ Note:
+random_forest_model.pkl is not included in this repository due to file size limitations.
+It is uploaded manually to the AWS EC2 instance during deployment.
+
+▶️ Running the Project Locally (Optional)
 pip install -r requirements.txt
-```
-2. Upload the trained Random Forest model (`random_forest_model.pkl`) manually if needed.  
-3. Run the Streamlit dashboard:
-```bash
 streamlit run app.py
-```
-4. Enter sensor values and get predicted appliance energy consumption.
-
-### On AWS
-1. Deploy the dashboard on an EC2 instance.  
-2. Upload the repository files (`app.py`, `model_training.ipynb`, `scaler.pkl`, `requirements.txt`) to the server.  
-3. Also upload the `random_forest_model.pkl` to the AWS instance.  
-4. Run the dashboard on the server:
-```bash
-streamlit run app.py
-```
-5. Access the interactive dashboard in your browser.
-
-## Conclusion
-This project demonstrates the practical use of machine learning for predicting appliance energy consumption. Users can easily interact with the model through the Streamlit dashboard by entering sensor data, making it a useful tool for smart home energy management.
 
 
+Make sure the trained model file (random_forest_model.pkl) is present in the project directory.
+
+☁️ AWS Deployment
+
+The dashboard was deployed on Amazon Web Services (AWS) using an EC2 instance, allowing remote access through a web browser.
+
+AWS Setup
+
+Service: AWS EC2
+
+Operating System: Ubuntu Linux
+
+Instance Type: t2.micro
+
+Security Group Rules:
+
+Port 22 (SSH)
+
+Port 8501 (Streamlit dashboard)
+
+Deployment Steps
+
+Connect to the EC2 instance via SSH using Windows PowerShell
+
+Create and activate a Python virtual environment
+
+Install required dependencies
+
+Upload project files and trained model
+
+Run the dashboard:
+
+streamlit run app.py --server.port 8501 --server.address 0.0.0.0
+
+
+Access the dashboard:
+
+http://<EC2_PUBLIC_IP>:8501
+
+✅ Conclusion
+
+This project demonstrates an end-to-end IoT-based machine learning system, combining data analysis, model training, cloud deployment, and interactive visualization.
+It highlights the practical application of machine learning in smart home energy management and showcases real-world skills in Python, cloud computing, and dashboard development.
