@@ -124,7 +124,8 @@ models with end users.
 ├── model_training.py          # Local model training script
 ├── scaler.pkl                 # Saved StandardScaler
 ├── requirements.txt           # Project dependencies
-├── README.md                  # Project documentation
+├── IOT_PROJECT_README.md      # Project documentation
+├── AWS_Deployment          
 ```
 
 **Note:**  
