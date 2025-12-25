@@ -127,7 +127,8 @@ models with end users.
 ├── IOT_PROJECT_README.md      # Project documentation
 ├── AWS_Deployment
 ├── Iot presentation
-├── iot project report        
+├── iot project report
+├── energydata_complete.csv    # the data sheet     
 ```
 
 **Note:**  
