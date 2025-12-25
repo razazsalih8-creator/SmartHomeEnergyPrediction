@@ -131,3 +131,6 @@ in real time, confirming correct cloud deployment and system functionality.
 
 <img width="943" height="529" alt="image" src="https://github.com/user-attachments/assets/15473a34-b29f-4bd6-865e-c61cb7aa01af" />
 
+Figure: The deployed Streamlit dashboard displayed in Google Chrome after successfully running the application on the AWS EC2 instance.
+<img width="945" height="525" alt="image" src="https://github.com/user-attachments/assets/cae98d82-056e-4b82-aaf2-9238bdc606c8" />
+Figure  : Dashboard interface showing user input values set to 0.01 for all sensor parameters and the resulting energy consumption prediction displayed on the screen.
