@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project presents a complete **IoT and Machine Learning solution** for predicting
+This project presents a complete IoT and Machine Learning solution for predicting
 appliance energy consumption in a smart home environment. The system integrates
 sensor data, machine learning models, and a cloud-based interactive dashboard.
 
