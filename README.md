@@ -125,7 +125,9 @@ models with end users.
 ├── scaler.pkl                 # Saved StandardScaler
 ├── requirements.txt           # Project dependencies
 ├── IOT_PROJECT_README.md      # Project documentation
-├── AWS_Deployment          
+├── AWS_Deployment
+├── Iot presentation
+├── iot project report        
 ```
 
 **Note:**  
