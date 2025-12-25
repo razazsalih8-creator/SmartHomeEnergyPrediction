@@ -120,10 +120,9 @@ models with end users.
 ```
 .
 ├── app.py                     # Streamlit dashboard application
-├── iot_project_colab_code.ipynb# ML implementation in Google Colab
+├── iot_project_colab_code.ipynb # ML implementation in Google Colab
 ├── model_training.py          # Local model training script
 ├── scaler.pkl                 # Saved StandardScaler
-├── requirements.txt           # Project dependencies
 ├── IOT_PROJECT_README.md      # Project documentation
 ├── AWS_Deployment
 ├── Iot presentation
