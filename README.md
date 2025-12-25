@@ -131,8 +131,19 @@ models with end users.
 ```
 
 **Note:**  
-`random_forest_model.pkl` is not included in this repository due to file size
-limitations. It is uploaded manually to the AWS EC2 instance during deployment.
+Note:
+Due to file size limitations, random_forest_model.pkl is not included in this repository. The model file is uploaded manually to the AWS EC2 instance during deployment.
+
+All preprocessing, model training, and file generation (app.py, scaler.pkl, and random_forest_model.pkl) are performed using Google Colab.
+The dataset is downloaded directly from the UCI Machine Learning Repository:
+https://archive.ics.uci.edu/dataset/374/appliances+energy+prediction
+
+When running the provided Google Colab notebook, the dataset CSV file should be uploaded without manually separating columns. The notebook already handles the correct delimiter using:
+
+df = pd.read_csv("energydata_completee.csv", sep=";")
+
+
+Because Google Colab runtimes are temporary, all generated files should be downloaded locally after execution and stored in the project directory or uploaded to the deployment environment as needed.
 
 ---
 
