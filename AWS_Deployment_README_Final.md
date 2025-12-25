@@ -128,3 +128,6 @@ and was publicly accessible.
 The dashboard was successfully deployed on AWS EC2 and accessed remotely.
 Users were able to enter numerical input values and receive prediction results
 in real time, confirming correct cloud deployment and system functionality.
+
+<img width="943" height="529" alt="image" src="https://github.com/user-attachments/assets/15473a34-b29f-4bd6-865e-c61cb7aa01af" />
+
